@@ -1,0 +1,564 @@
+/* ==== RWD ==== */
+
+@media (max-width: 2130px) {
+
+.naglowek-gora
+{
+background: rgb(6, 78, 55);
+background: -moz-linear-gradient(0deg, rgb(6, 78, 55) 80%, rgb(32, 123, 94) 80%);
+background: -webkit-linear-gradient(0deg, rgb(6, 78, 55) 80%, rgb(32, 123, 94) 80%);
+background: -o-linear-gradient(0deg, rgb(6, 78, 55) 80%, rgb(32, 123, 94) 80%);
+background: -ms-linear-gradient(0deg, rgb(6, 78, 55) 80%, rgb(32, 123, 94) 80%);
+background: linear-gradient(90deg, rgb(6, 78, 55) 80%, rgb(32, 123, 94) 80%);
+}
+
+.naglowek-gora-menu
+{
+background: rgb(32, 123, 94);
+background: -moz-linear-gradient(0deg, rgb(32, 123, 94) 20%, rgb(6, 78, 55) 20%);
+background: -webkit-linear-gradient(0deg, rgb(32, 123, 94) 20%, rgb(6, 78, 55) 20%);
+background: -o-linear-gradient(0deg, rgb(32, 123, 94) 20%, rgb(6, 78, 55) 20%);
+background: -ms-linear-gradient(0deg, rgb(32, 123, 94) 20%, rgb(6, 78, 55) 20%);
+background: linear-gradient(90deg, rgb(32, 123, 94) 20%, rgb(6, 78, 55) 20%);
+}
+
+}
+
+
+@media (max-width: 1920px) {
+
+.naglowek-gora
+{
+background: rgb(6, 78, 55);
+background: -moz-linear-gradient(0deg, rgb(6, 78, 55) 90%, rgb(32, 123, 94) 90%);
+background: -webkit-linear-gradient(0deg, rgb(6, 78, 55) 90%, rgb(32, 123, 94) 90%);
+background: -o-linear-gradient(0deg, rgb(6, 78, 55) 90%, rgb(32, 123, 94) 90%);
+background: -ms-linear-gradient(0deg, rgb(6, 78, 55) 90%, rgb(32, 123, 94) 90%);
+background: linear-gradient(90deg, rgb(6, 78, 55) 90%, rgb(32, 123, 94) 90%);
+
+}
+
+.naglowek-gora-menu
+{
+background: rgb(32, 123, 94);
+background: -moz-linear-gradient(0deg, rgb(32, 123, 94) 10%, rgb(6, 78, 55) 10%);
+background: -webkit-linear-gradient(0deg, rgb(32, 123, 94) 10%, rgb(6, 78, 55) 10%);
+background: -o-linear-gradient(0deg, rgb(32, 123, 94) 10%, rgb(6, 78, 55) 10%);
+background: -ms-linear-gradient(0deg, rgb(32, 123, 94) 10%, rgb(6, 78, 55) 10%);
+background: linear-gradient(90deg, rgb(32, 123, 94) 10%, rgb(6, 78, 55) 10%);
+}
+
+.baner-slajd-tlo-ob
+{
+  width:auto; 
+  height:100%;
+    
+}
+
+}
+
+
+
+@media (max-width: 1200px) {
+
+.naglowek-gora-tlo, .naglowek-menu-tlo, .stopka-gora-tlo
+{
+  width:calc((100% - 930px) / 2);
+}
+
+.basket-items-container .i-row .item-basket-info {
+    flex-wrap: wrap;
+}
+
+}
+
+
+@media (max-width: 992px) {
+
+
+.naglowek-gora-tlo, .naglowek-menu-tlo, .stopka-gora-tlo
+{
+  width:calc((100% - 690px) / 2);
+}
+
+header
+{
+ padding-top:204px;
+}
+
+.naglowek, .naglowek-f
+{
+  width:100%;
+  position:fixed;
+  background:white;
+  top:0px;
+  left:0px;
+  z-index:9999;
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.19);
+  -moz-box-shadow:    0px 5px 10px 0px rgba(0, 0, 0, 0.19);
+  box-shadow:         0px 5px 10px 0px rgba(0, 0, 0, 0.19);
+  
+}
+
+.naglowek .naglowek-zaw, .naglowek-f .naglowek-zaw
+{
+  position:relative;
+  padding:15px 0px 21px 0px; 
+}
+
+.naglowek .naglowek-zaw-logo, .naglowek-f .naglowek-zaw-logo
+{
+  width:auto;
+  height:70px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;  
+}
+
+
+.naglowek .naglowek-zaw-slogan, .naglowek-f .naglowek-zaw-slogan
+{
+  position:absolute;
+  top:50%;
+  left:150px;    
+}
+
+.naglowek-zaw-slogan-tekst
+{
+  color:#064e37;
+  font-size:22px;
+}
+
+.naglowek-zaw-info
+{
+  right:80px;   
+}
+
+.naglowek .naglowek-zaw-infolinnia img, naglowek-f .naglowek-zaw-infolinnia img
+{
+  display:inline-block;
+  vertical-align:middle;
+  width:auto;
+  height:29px;
+}
+
+
+
+.naglowek-zaw-infolinnia-tekst-tel
+{
+  display:inline-block;
+  vertical-align:middle;
+  color:#207b5e;
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:0.5px;
+    transform: scale(1, 1.1);
+  -webkit-transform:scale(1, 1.1);
+  -ms-transform:scale(1, 1.1);
+  padding-left:10px;  
+}
+
+.naglowek-zaw-infolinnia-tekst-tel span
+{
+  display:none; 
+}
+
+.naglowek-zaw-infolinnia-tekst-mail a
+{
+  margin-top:0px;   
+}
+
+.menu-strony-nav
+{
+  position:fixed;
+  top:0px;
+  right:0px;
+  width:0%;
+  height:100%;
+  background:#064e37;
+  z-index:999999999;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;   
+}
+
+.menu-strony-nav-open
+{
+  position:fixed;
+  top:0px;
+  right:0px;
+  width:100%;
+  height:100%;
+  background:#064e37;
+  z-index:999999999;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;   
+}
+
+.menu-strony-zam
+{
+  display:block;
+  text-align:right;
+  padding:15px;
+}
+
+.menu-strony-zam span
+{
+  display:inline-block;
+  width:36px;
+  height:36px;
+  background:url('/assets/img/zam.png') no-repeat center center;
+  cursor:pointer;
+}
+
+
+.menu-strony-przycisk-mobilny
+{
+  display:block;
+}
+
+.menu-strony
+{
+  display:block;
+  text-align:center;
+}
+
+.menu-strony li
+{
+  display:block;
+  margin-left:0px;
+  padding-top:14px;
+}
+
+.menu-strony li a
+{
+  font-size:18px;
+}
+
+.baner-slajd-tlo
+{
+  height:450px;
+}
+
+.sekcja-o-firmie-ob-dwa
+{
+  padding-left:0px;
+  padding-top:40px;
+  text-align:center;
+}
+
+.sekcja-o-firmie-ob-dwa img
+{
+  width:100%;
+  max-width:455px;
+  height:auto;
+}
+
+.sekcja-aktualnosci-blok-ob img
+{
+  width:110%;
+  height:auto;
+}
+
+.stopka-gora-zaw
+{
+  position:relative;
+  padding:100px 0px 50px 0px;
+}
+
+.stopka-gora-poz
+{
+  display:inline-block;
+  vertical-align:top;
+  padding-left:0px;
+  padding-right:50px;
+}
+
+.produkt-cena
+{
+    margin-bottom: 25px;
+}
+
+.basket-back-to-shopping, .przejdz-do-kasy-marginesy-rwd
+{
+    margin: 30px 0;
+}
+
+.sekcja-produkty-blok-przycisk
+{
+    margin-bottom: 30px;
+}
+
+.basket-items-container > .i-row {
+    align-items: inherit;
+}
+
+.item-product-info{
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+}
+
+
+@media (max-width: 768px) {
+
+.naglowek-gora-tlo, .naglowek-menu-tlo, .stopka-gora-tlo
+{
+  width:calc((100% - 510px) / 2);
+}
+
+.naglowek-zaw-slogan-tekst
+{
+  display:none;
+}
+
+.naglowek-menu-zaw-info-p-pod
+{
+    padding: 50px 15px 40px 15px;
+}
+
+.sekcja-newsletter
+{
+   text-align:center;
+}
+
+.sekcja-newsletter-form
+{
+  margin:0px auto;
+}
+
+.basket-items-container > .i-row {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.g-recaptcha.rejestracja
+{
+    margin-bottom: 40px;
+}
+
+.sekcja-produkty-blok-przycisk
+{
+    padding-top: 21px;
+}
+
+.przycisk-kupon
+{
+  margin-top: 25px;  
+  min-width: 100%;
+}
+
+}
+
+
+
+@media (max-width: 576px) {
+
+.naglowek-gora-tlo, .naglowek-menu-tlo, .stopka-gora-tlo
+{
+  width:15px;
+}
+
+.sekcja-o-firmie-naglowek
+{
+  font-size:28px;
+  margin:0px 0px 30px 0px;
+}
+
+.sekcja-punkty-naglowek
+{
+
+  font-size:28px;
+  margin:0px 0px 75px 0px;
+
+}
+
+.sekcja-punkty-naglowek span
+{
+  font-size:22px;
+  padding-top:10px;
+}
+
+.sekcja-newsletter-naglowek
+{
+  font-size:28px;  
+}
+
+.produkt-kontrola-ilosc
+{
+    margin-bottom: 15px;
+}
+
+
+}
+
+@media (max-width: 440px) {
+
+.naglowek .naglowek-zaw-infolinnia img, naglowek-f .naglowek-zaw-infolinnia img
+{
+  display:none;
+}
+
+.naglowek-zaw-infolinnia-tekst-tel
+{
+  display:inline-block;
+  vertical-align:middle;
+  color:#207b5e;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:normal;
+  padding-left:0px;  
+}
+
+.naglowek-zaw-infolinnia-tekst-mail a
+{
+  margin-top:0px;
+  display:inline-block;
+  vertical-align:middle;
+  color:#313131;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:normal;
+  text-transform:uppercase; 
+    transform: scale(1, 1.1);
+  -webkit-transform:scale(1, 1.1);
+  -ms-transform:scale(1, 1.1);   
+}
+
+.naglowek-gora-zaw-rej
+{
+  display:inline-block;
+  vertical-align:middle;
+  color:white;
+  font-size:12px;
+  font-weight:500;
+  line-height:38px;
+  text-decoration:underline;
+  letter-spacing:normal; 
+  padding-right:8px;
+   
+}
+
+.naglowek-gora-zaw-rej:hover
+{
+  color:#c09156;
+  text-decoration:underline;
+}
+
+.naglowek-gora-zaw-konto
+{
+  display:inline-block;
+  vertical-align:middle;
+  color:white;
+  font-size:12px;
+  font-weight:500;
+  line-height:38px;
+  letter-spacing:normal;
+  padding-right:8px;
+  text-decoration:underline;
+    
+}
+
+.naglowek-gora-zaw-konto:hover
+{
+  color:#c09156;
+  text-decoration:underline;
+}
+
+.naglowek-gora-zaw
+{
+  padding-right:0px;
+  position:relative;
+  text-align:right;
+}
+
+
+.naglowek-gora-zaw-cena
+{
+  position:relative;
+  right:auto;
+  top:auto;
+  width:auto;
+  height:auto;  
+  background:transparent;
+  text-align:right;
+  color:white;
+  font-size:16px;
+  font-weight:700;
+  line-height:38px;
+  letter-spacing:0.5px;
+  display:inline-block;
+  vertical-align:middle; 
+
+}
+
+.naglowek-gora-tlo::before
+{
+  display:none; 
+}
+
+.naglowek-gora
+{
+ background: rgb(32, 123, 94);
+}
+
+.naglowek-zaw-info 
+{
+    right: 60px;
+}
+
+.naglowek-menu-zaw-info-p-pod li a span
+{
+  
+  width:calc(100% - 100px); 
+}
+
+
+.item-name{
+    min-width: 0px !important;
+}
+
+.item-price, .item-quantity, .item-value, .item-delete
+{
+    width: 100% !important;
+}
+
+.item-price, .item-value
+{
+    justify-content: center !important;
+}
+
+}
+
+
+@media (max-width: 380px) {
+
+.naglowek .naglowek-zaw, .naglowek-f .naglowek-zaw
+{
+  position:relative;
+  padding:25px 0px 31px 0px; 
+}
+
+.naglowek .naglowek-zaw-logo, .naglowek-f .naglowek-zaw-logo
+{
+  width:auto;
+  height:50px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;  
+}
+
+.sekcja-aktualnosci-blok-ob img
+{
+  width:auto;
+  height:100%;
+}
+
+}

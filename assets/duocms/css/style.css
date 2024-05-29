@@ -1,0 +1,95 @@
+.label {
+    color: #555555;
+}
+.adjust-nav h1 {
+    color: #eb479b;
+    font-weight: bold;
+}
+
+.login_body {
+    background-image: url('../img/background_login.jpg');
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dashboard .btn {
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.submenu {
+    padding: 0px !important;
+}
+.submenu li {
+    padding-left: 10px;
+}
+
+.product-gallery {
+	margin: 2em 0;
+}
+.product-gallery:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+.product-gallery .item {
+	box-sizing: border-box;
+	float: left;
+	height: 167px;
+	line-height: 120px;
+	margin-bottom: 8px;
+	padding: 8px;
+	position: relative;
+	text-align: center;
+	width: 167px;
+}
+.product-gallery .item a {
+	background: rgba(0, 0, 0, 0.7);
+	bottom: 8px;
+	color: #f00;
+	font-size: 26px;
+	height: 26px;
+        width:26px;
+/*	left: 8px;*/
+	line-height: 26px;
+	opacity: 0;
+	position: absolute;
+	right: 8px;
+	text-align: center;
+	top: 8px;
+	transition: all 200ms;
+}
+.product-gallery .item:hover a {
+	opacity: 1;
+}
+.product-gallery .item img {
+	background: #fff;
+	box-shadow: 0 5px 5px -5px #000;
+	box-sizing: border-box;
+	margin: 0 auto;
+	max-width: 100%;
+	vertical-align: top;
+        max-height: 200px;
+}
+
+.miniaturka-allegro{
+    height: 50px;
+    width: auto;
+}
+
+.input-group-btn{
+    font-size: 14px;
+}
+
+.gallery-item{
+    height:150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+ul.pagination{
+    margin: 0;
+}

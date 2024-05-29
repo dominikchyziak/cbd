@@ -1,0 +1,388 @@
+@charset "UTF-8";
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: #e10a19;
+}
+h1,h2,h3 {
+    /*width:100%;*/
+}
+a:hover {
+    text-decoration: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.btn-primary {
+    background: #207b5e;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    color: white;
+    transition: 0.5s;
+}
+.btn-primary:hover {
+    background: #c09156;
+    transition: 0.4s;
+}
+.breadcrumb {
+    background: transparent;
+    color: #000000;
+    margin: 30px 0px 10px 0px;
+    padding-left: 0;
+}
+.breadcrumb a {
+    color: #207b5e;
+}
+
+.breadcrumb a:hover {
+    color: #c09156;
+}
+.languages {
+/*    z-index: 999999;
+    position: fixed;
+    right: 78px;
+    top: 0;
+    padding: 15px;*/
+    width: 100%;
+    text-align: right;
+}
+.languages img {
+    width:20px !important;
+    height: auto !important;
+    margin-right: 0px !important;
+    margin-left: 5px;
+}
+.easy-autocomplete-container{
+    top:40px;
+}
+
+.btn-pay {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    max-width: 250px;
+}
+
+.subpage-content {
+    margin-bottom: 50px;
+}
+
+.filtry-box ul li {
+    display: block;
+    margin-left: -15px;
+}
+.filtry-box {
+    padding-left: 0px;
+}
+.filtry-box ul {
+    margin-bottom: 20px;
+}
+.filtry-box ul.filter-list {
+    margin-top: 20px;
+}
+
+.filtry-box .more {
+    display: none;
+}
+
+.filtry-box .read_more {
+    cursor: pointer;
+}
+.filtry-box .menu-1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.filtry-box .menu-1 a {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.filtry-box h4 {
+   font-weight: bold;
+/*   margin-top: 30px;
+   margin-bottom: 10px;*/
+    margin-left: 0px; 
+}
+/*
+.filtry-box ul li {
+   display: block;
+   margin-left: -15px;
+   line-height: 30px;
+}
+
+.filtry-box .filter-list span,
+.filter-box .filter-list cat_id{
+    display: none;
+}
+a.category_link.no-active {
+    color: #757575;
+}
+a.category_link.active {
+    font-weight: bold;
+}
+*/
+.margin33px {
+    margin-left: 33px;
+}
+.products .box-1 h2 a {
+    font-size: 16px;
+    height: 3.6em;
+    float: left;
+    width: 100%;
+}
+.products .box-1 .txt {
+    font-size: 12px;
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+    height: 3.4rem;
+}
+.products .price {
+    text-align: center;
+}
+.products .image-container {
+    margin:15px;
+    width: calc(100% - 30px);
+    float:left;
+    height: 250px;
+    background-position: center !important;
+    -webkit-background-size: contain !important;
+    -moz-background-size: contain  !important;
+    -o-background-size: contain !important;
+    background-size: contain !important;
+}
+.products .sekcja-produkty-pozycja {
+    margin-top: 50px;
+}
+.title {
+    width:100%;
+}
+
+.product_attribute {
+    color: #ffffff;
+    background-color: #e10a19;
+    margin: 5px;
+    border-radius: 4px;
+/*    box-shadow: 1px 1px 3px #e10a19;*/
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+    float:left;
+    width:auto;
+}
+
+.product h1 {
+    padding-top: 10px;
+    float:left;
+    width:100%;
+    text-align: left;
+}
+.product hr {
+    width:100%;
+}
+
+.product-box {
+    margin-top: 30px;
+    margin-left: -3px;
+}
+.product-box:hover {
+    box-shadow: inset 0px 0px 4px 4px #e3e0d9;
+}
+.product-box .box-1 .description {
+   float: left;
+   width: 100%;
+   padding: 0;
+}
+
+.title {
+    float: left;
+    text-align: left;
+    clear: both;
+}
+big.price {
+    font-size: 30px;
+    font-weight: bold;
+}
+#bonus-price {
+    color: #afafaf;
+    font-size: 20px;
+    text-decoration: line-through;
+}
+.product .description {
+    width: 100%;
+    float: left;
+}
+
+.product-images img {
+    margin-top: 20px;
+}
+.product-images .big img {
+    margin-top: 0px;
+}
+.lb-outerContainer {
+    /*height: auto !important;*/
+}
+
+.order-summary table {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 20px;
+}
+
+/*slider produktowy */
+#miniatury-slider{
+   margin-top: 20px;
+   width: 100%;
+   float: left;
+}
+.miniatury-box{
+   margin: 0 15px;
+}
+.miniatury-img{
+   height: 200px;
+   background-size: contain !important;
+   background-position: center;
+   background-repeat: no-repeat;
+   width: auto;
+   min-width: 100px;
+}
+
+.slick-next{
+       z-index: 1;
+   background-size: contain;
+   background-image: url("../img/right.png");
+}
+
+.slick-prev{
+       z-index: 1;
+   background-size: contain;
+   background-image: url("../img/left.png");
+}
+.slick-next:before, .slick-prev:before{
+   content: none;
+}
+.slick-prev:focus {
+   outline:0 !important;
+    z-index: 1;
+   background-size: contain;
+   background-image: url("../img/left.png");
+}
+.slick-next:hover {
+    z-index: 100000;
+   background-size: contain;
+   background-image: url("../img/right.png");
+}
+.slick-prev:hover {
+    z-index: 1;
+   background-size: contain;
+   background-image: url("../img/left.png");
+}
+.slick-next:focus { 
+   z-index: 1;
+   background-size: contain;
+   background-image: url("../img/right.png");
+}
+.slick-prev:focus {
+   z-index: 100000;
+   background-size: contain;
+   background-image: url("../img/left.png");
+}
+@media screen and (max-width: 767px){
+    #miniatury-slider{
+        width: 86%;
+        margin-left: 7%;
+     }
+}
+
+/* checkbox custom style */
+.container-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-weight: normal;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+  background-color: #a4abb1;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* dla sportplaza */
+/*.menu-strony {
+    text-transform: uppercase;
+}*/
+
+@media screen and (max-width: 676px){
+    .breadcrumb {
+        margin-top: 50px;
+    }
+    
+/*    :after, :before {
+        box-sizing: initial;
+    }*/
+}

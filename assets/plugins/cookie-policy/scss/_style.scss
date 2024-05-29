@@ -1,0 +1,59 @@
+.pull-right {
+    float: right;
+}
+
+#polityka_cookies {
+    background: $polityka-cookies-background;
+    border-top: $polityka-cookies-border-top;
+    bottom: 0;
+    color: $polityka-cookies-color;
+    font: {
+        family: $polityka-cookies-font-family;
+    }
+    height: 50px;
+    left: 0;
+    line-height: 50px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 1500;
+
+    .cookie-inblock {
+        display: inline-block;
+        line-height: 16px;
+        text-align: left;
+        vertical-align: middle;
+        width: 980px;
+
+        p {
+            display: inline-block;
+            font: {
+                size: 14px;
+            }
+            margin: 0;
+            vertical-align: middle;
+
+            &:first-child {
+                font: {
+                    size: 11px;
+                }
+                width: 50%;
+            }
+
+            .privacy-policy {
+                color: $privacy-policy-color;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .cookie-button {
+        background: $cookie-button-background;
+        border-radius: 10px;
+        color: $cookie-button-color;
+        display: inline-block;
+        margin-left: 40px;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+}

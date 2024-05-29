@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://api.sandbox-sendit.pl/public.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://api.sandbox-sendit.pl/public.php">
+<types>
+<xsd:schema targetNamespace="http://api.sandbox-sendit.pl/public.php"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="returnStruct.SPGetUser">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="userData" type="tns:userData" minOccurs="0" maxOccurs="1" documentation="User data."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPUserLogin">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="userHash" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="User hash."/>
+   <xsd:element name="userMainData" type="tns:userMainData" minOccurs="0" maxOccurs="1" documentation="User data."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPUserField">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="fieldName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="fieldValue" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field value."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPAddressAdd">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="addressID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address ID."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPAddressDelete">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPAddressList">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="conditions" type="tns:listConditions" minOccurs="0" maxOccurs="1" documentation="List of conditions."/>
+   <xsd:element name="addresses" type="tns:listResults" minOccurs="0" maxOccurs="1" documentation="List of addresses."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPGetAddress">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="address" type="tns:userAddress" minOccurs="0" maxOccurs="1" documentation="Address data."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="listAddresses">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:userAddress[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="listResults">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="count" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of results."/>
+   <xsd:element name="list" type="tns:listAddresses" minOccurs="0" maxOccurs="1" documentation="List of results."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="listConditions">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="operand" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Operator."/>
+   <xsd:element name="value" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field value."/>
+   <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="orderType" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sorting order."/>
+   <xsd:element name="limit" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results limit."/>
+   <xsd:element name="offset" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results offset."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="userData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="mainData" type="tns:userMainData" minOccurs="1" maxOccurs="1" documentation="User main public data."/>
+   <xsd:element name="mainAddress" type="tns:userAddress" minOccurs="0" maxOccurs="1" documentation="User main address."/>
+   <xsd:element name="forwardAddress" type="tns:userAddress" minOccurs="0" maxOccurs="1" documentation="User forwarded address."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="userMainData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="userID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User ID."/>
+   <xsd:element name="dateAdded" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User registration date."/>
+   <xsd:element name="userLogin" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User login."/>
+   <xsd:element name="userEmail" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User email address."/>
+   <xsd:element name="lastLogin" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Last login date."/>
+   <xsd:element name="firstName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User first name."/>
+   <xsd:element name="surName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User last name."/>
+   <xsd:element name="companyName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User company name."/>
+   <xsd:element name="companyNIP" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User NIP."/>
+   <xsd:element name="phone" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User phone number."/>
+   <xsd:element name="activationDate" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User activation date."/>
+   <xsd:element name="blockedStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User blocked status."/>
+   <xsd:element name="blockedDescription" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Last reason for blocking."/>
+   <xsd:element name="addAddressStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User needs address status."/>
+   <xsd:element name="updateDataStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User needs to update data status."/>
+   <xsd:element name="changePasswordStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User needs to change password status."/>
+   <xsd:element name="standingOrder" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User has got standing order."/>
+   <xsd:element name="bankAccount" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User bank account."/>
+   <xsd:element name="invoiceStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User wants invoices status."/>
+   <xsd:element name="paymentType" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="User payment type."/>
+   <xsd:element name="termsStatus" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User agrees with terms and conditions."/>
+   <xsd:element name="postpaidReady" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="User ready for postpaid."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="userAddress">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="addressID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address ID."/>
+   <xsd:element name="userID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address owner ID."/>
+   <xsd:element name="addressName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address name."/>
+   <xsd:element name="mainAddress" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is main."/>
+   <xsd:element name="defaultShipment" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is default shipment place."/>
+   <xsd:element name="forwardAddress" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is set as forward."/>
+   <xsd:element name="street" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Street name and number."/>
+   <xsd:element name="zipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Zip code."/>
+   <xsd:element name="city" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="City name."/>
+   <xsd:element name="countryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Country ISO code."/>
+   <xsd:element name="phoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Phone number."/>
+   <xsd:element name="contactPerson" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Contact person name."/>
+   <xsd:element name="userName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address owner name."/>
+   <xsd:element name="companyName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address company name."/>
+   <xsd:element name="email" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address email address."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="userAddressIn">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+  <xsd:all>
+   <xsd:element name="addressID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address ID."/>
+   <xsd:element name="addressName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address name."/>
+   <xsd:element name="mainAddress" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is main."/>
+   <xsd:element name="defaultShipment" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is default shipment place."/>
+   <xsd:element name="forwardAddress" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Address is set as forward."/>
+   <xsd:element name="street" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Street name and number."/>
+   <xsd:element name="zipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Zip code."/>
+   <xsd:element name="city" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="City name."/>
+   <xsd:element name="countryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Country ISO code."/>
+   <xsd:element name="phoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Phone number."/>
+   <xsd:element name="contactPerson" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Contact person name."/>
+   <xsd:element name="userName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address owner name."/>
+   <xsd:element name="companyName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address company name."/>
+   <xsd:element name="email" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Address email address."/>
+  </xsd:all>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderPDF">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="orders" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="List of order numbers printed."/>
+   <xsd:element name="pdf" type="xsd:base64Binary" minOccurs="0" maxOccurs="1" documentation="Base64 encoded PDF file"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderList">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="conditions" type="tns:listOrderConditions" minOccurs="0" maxOccurs="1" documentation="List of conditions."/>
+   <xsd:element name="orders" type="tns:listOrderResults" minOccurs="0" maxOccurs="1" documentation="List of orders."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listOrderConditions">
+  <xsd:all>
+   <xsd:element name="type" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Order type."/>
+   <xsd:element name="operand" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Operator."/>
+   <xsd:element name="value" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field value."/>
+   <xsd:element name="orderby" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="ordertype" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sorting order."/>
+   <xsd:element name="limit" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results limit."/>
+   <xsd:element name="offset" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results offset."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listOrderResults">
+  <xsd:all>
+   <xsd:element name="count" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of results."/>
+   <xsd:element name="list" type="tns:listOrders" minOccurs="0" maxOccurs="1" documentation="List of results."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listOrders">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:orderDataOutput[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderStatus">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="orders" type="tns:statOrderData" minOccurs="0" maxOccurs="1" documentation="Orders with their statuses."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="statOrderData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:statOrderDataSingle[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="statOrderDataSingle">
+  <xsd:all>
+   <xsd:element name="orderNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Order number."/>
+   <xsd:element name="statusNumber" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Order status."/>
+   <xsd:element name="statusInfo" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Status description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderConfirmList">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="orderNumbers" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="Order numbers."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderSave">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="pricing" type="tns:singleOperatorPricing" minOccurs="1" maxOccurs="1" documentation="Pricing result."/>
+   <xsd:element name="address" type="tns:rateAddress" minOccurs="1" maxOccurs="1" documentation="Order addresses."/>
+   <xsd:element name="orderNumbers" type="tns:orderNumbers" minOccurs="1" maxOccurs="1" documentation="Order numbers."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPOrderRate">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="pricing" type="tns:pricingArray" minOccurs="0" maxOccurs="1" documentation="Pricing results."/>
+   <xsd:element name="address" type="tns:rateAddress" minOccurs="0" maxOccurs="1" documentation="Order addresses."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="pricingArray">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:singleOperatorPricing[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="orderNumbers">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:orderNumberSingle[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="orderNumberSingle">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="orderNo" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Order No."/>
+   <xsd:element name="package" type="tns:package" minOccurs="0" maxOccurs="1" documentation="Package."/>
+   <xsd:element name="pallet" type="tns:package" minOccurs="0" maxOccurs="1" documentation="Pallet."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPGetOrder">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="order" type="tns:orderDataOutput" minOccurs="0" maxOccurs="1" documentation="Order data."/>
+   <xsd:element name="history" type="tns:orderHistory" minOccurs="0" maxOccurs="1" documentation="Order history."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="orderDataOutput">
+  <xsd:all>
+   <xsd:element name="senderCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender country ISO code."/>
+   <xsd:element name="senderEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender email address."/>
+   <xsd:element name="senderName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender name."/>
+   <xsd:element name="senderStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender street name and number."/>
+   <xsd:element name="senderCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender city name."/>
+   <xsd:element name="senderPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender phone number."/>
+   <xsd:element name="senderZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender zip code."/>
+   <xsd:element name="senderContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender contact person name."/>
+   <xsd:element name="receiverCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver country ISO code."/>
+   <xsd:element name="receiverEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver email address."/>
+   <xsd:element name="receiverName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver name."/>
+   <xsd:element name="receiverStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver street name and number."/>
+   <xsd:element name="receiverCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver city name."/>
+   <xsd:element name="receiverPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver phone number."/>
+   <xsd:element name="receiverZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver zip code."/>
+   <xsd:element name="receiverContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver contact person name."/>
+   <xsd:element name="kP2" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 2kg packs."/>
+   <xsd:element name="kP5" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 5kg packs."/>
+   <xsd:element name="kP10" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 10kg packs."/>
+   <xsd:element name="kP20" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 20kg packs."/>
+   <xsd:element name="kP30" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 30kg packs."/>
+   <xsd:element name="kP50" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 50kg packs."/>
+   <xsd:element name="kP70" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of 70kg packs."/>
+   <xsd:element name="kPal" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet order."/>
+   <xsd:element name="palletHeight" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet height."/>
+   <xsd:element name="palletWeight" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet weight."/>
+   <xsd:element name="packA" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of InPost A-size packs."/>
+   <xsd:element name="packB" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of InPost B-size packs."/>
+   <xsd:element name="packC" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of InPost C-size packs."/>
+   <xsd:element name="packCode" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="InPost pack code."/>
+   <xsd:element name="sizesData" type="tns:sizesData" minOccurs="0" maxOccurs="1" documentation="InPost pack sizes."/>
+   <xsd:element name="senderBox" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="InPost sender box code."/>
+   <xsd:element name="preferredBox" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="InPost preferred receiver box code."/>
+   <xsd:element name="secondaryBox" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="InPost secondary receiver box code."/>
+   <xsd:element name="deliveringCode" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="InPost delivering pack code."/>
+   <xsd:element name="CODValue" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="COD value."/>
+   <xsd:element name="INS" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="INS value."/>
+   <xsd:element name="ROD" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="ROD flag."/>
+   <xsd:element name="SRE" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="SRE flag."/>
+   <xsd:element name="SSE" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="SSE flag."/>
+   <xsd:element name="BYH" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="BYH flag."/>
+   <xsd:element name="H24" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="H24 flag."/>
+   <xsd:element name="deliveryTime" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Delivery time code."/>
+   <xsd:element name="alerts" type="tns:alertsData" minOccurs="0" maxOccurs="1" documentation="List of set notifications."/>
+   <xsd:element name="NSTData" type="tns:nstData" minOccurs="0" maxOccurs="1" documentation="List of custom packs."/>
+   <xsd:element name="comment" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Additional comments."/>
+   <xsd:element name="content" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Content description."/>
+   <xsd:element name="courierName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Operator name."/>
+   <xsd:element name="LPNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Order label number."/>
+   <xsd:element name="trackingCodes" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="List of order tracking codes."/>
+   <xsd:element name="userID" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Order owner ID."/>
+   <xsd:element name="status" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Order status."/>
+   <xsd:element name="orderHash" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Order hash."/>
+   <xsd:element name="orderID" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Order ID."/>
+   <xsd:element name="orderNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Order number."/>
+   <xsd:element name="finalNett" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="Order net price."/>
+   <xsd:element name="finalVAT" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="Order VAT price."/>
+   <xsd:element name="finalGross" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="Order gross price."/>
+   <xsd:element name="finalQuantity" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Order packs quantity."/>
+   <xsd:element name="currency" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Currency ISO code."/>
+   <xsd:element name="invoiceDrawn" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Invoice drawn status."/>
+   <xsd:element name="protocolNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Report number"/>
+   <xsd:element name="protocolFlag" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Auto report set flag."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="nstData">
+  <xsd:all>
+   <xsd:element name="kP2" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="2kg pack."/>
+   <xsd:element name="kP5" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="5kg pack."/>
+   <xsd:element name="kP10" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="10kg pack."/>
+   <xsd:element name="kP20" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="20kg pack."/>
+   <xsd:element name="kP30" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="30kg pack."/>
+   <xsd:element name="kP50" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="50kg pack."/>
+   <xsd:element name="kP70" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="70kg pack."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="alertsData">
+  <xsd:all>
+   <xsd:element name="receive" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="Order picked up notifications."/>
+   <xsd:element name="courier" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="Courier sent notifications."/>
+   <xsd:element name="advice" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="Advice left notifications."/>
+   <xsd:element name="deliver" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="Order delivered notifications."/>
+   <xsd:element name="refuse" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="Order refused notifications."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="alertTarget">
+  <xsd:all>
+   <xsd:element name="sender" type="tns:alertType" minOccurs="0" maxOccurs="1" documentation="Notifications for sender."/>
+   <xsd:element name="receiver" type="tns:alertType" minOccurs="0" maxOccurs="1" documentation="Notifications for receiver."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="alertType">
+  <xsd:all>
+   <xsd:element name="sms" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Phone text message notification status."/>
+   <xsd:element name="email" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Email notification status."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="sizesData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:singleSizesData[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="singleSizesData">
+  <xsd:all>
+   <xsd:element name="width" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Pack width."/>
+   <xsd:element name="height" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Pack height."/>
+   <xsd:element name="depth" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Pack depth."/>
+   <xsd:element name="weight" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Pack weight."/>
+   <xsd:element name="COD" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="Pack COD value."/>
+   <xsd:element name="INS" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pack INS value."/>
+   <xsd:element name="content" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Pack content."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="orderHistory">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:orderHistoryStatus[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="orderHistoryStatus">
+  <xsd:all>
+   <xsd:element name="statusID" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Status ID."/>
+   <xsd:element name="statusNumber" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Status number."/>
+   <xsd:element name="statusInfo" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Status information."/>
+   <xsd:element name="date" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Status date."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPServicesCheck">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="services" type="tns:listServices" minOccurs="0" maxOccurs="1" documentation="List of services."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listServices">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:listServicesOperator[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="listServicesOperator">
+  <xsd:all>
+   <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Operator name."/>
+   <xsd:element name="terms" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="List of available delivery times."/>
+   <xsd:element name="services" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="List of available services."/>
+   <xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Error name."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPPackagesValidate">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="packages" type="tns:packagesList" minOccurs="0" maxOccurs="1" documentation="List of packages."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="packagesList">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:validateList[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="validateList">
+  <xsd:all>
+   <xsd:element name="height" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="width" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="depth" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="weight" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="packsType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="categoryList" type="tns:categoryList" minOccurs="0" maxOccurs="1" documentation="Pack category for each operator."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="categoryList">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:categoryPack[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="categoryPack">
+  <xsd:all>
+   <xsd:element name="operator" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Operator name."/>
+   <xsd:element name="packCategory" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Pack category."/>
+   <xsd:element name="NST" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="NST status."/>
+   <xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Error information."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="packages">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:package[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="package">
+  <xsd:all>
+   <xsd:element name="height" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="width" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="depth" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="weight" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="packsType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="COD" type="xsd:float" minOccurs="0" maxOccurs="1" documentation="Pack COD value."/>
+   <xsd:element name="INS" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pack INS value."/>
+   <xsd:element name="content" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Pack content."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="pricingData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:singleOperatorPricing[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="singleOperatorPricing">
+  <xsd:all>
+   <xsd:element name="operator" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Operator code."/>
+   <xsd:element name="offline" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Offline status."/>
+   <xsd:element name="deliveryTime" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Delivery time type."/>
+   <xsd:element name="rates" type="tns:ratesArray" minOccurs="0" maxOccurs="1" documentation="Rates list."/>
+   <xsd:element name="overall" type="tns:overall" minOccurs="0" maxOccurs="1" documentation="Overall pricing."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="overall">
+  <xsd:all>
+   <xsd:element name="nett" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Nett price."/>
+   <xsd:element name="vat" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="VAT value."/>
+   <xsd:element name="gross" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Gross price."/>
+   <xsd:element name="quantity" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Products quantity."/>
+   <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ratesArray">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:singleRate[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="singleRate">
+  <xsd:all>
+   <xsd:element name="courier" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Courier name."/>
+   <xsd:element name="userPaymentType" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="User payment type."/>
+   <xsd:element name="alerts" type="tns:alertTypes" minOccurs="0" maxOccurs="1" documentation="Alerts type."/>
+   <xsd:element name="products" type="tns:productsArray" minOccurs="0" maxOccurs="1" documentation="Products."/>
+   <xsd:element name="services" type="tns:servicesArray" minOccurs="0" maxOccurs="1" documentation="Services."/>
+   <xsd:element name="overall" type="tns:overall" minOccurs="0" maxOccurs="1" documentation="Overall."/>
+   <xsd:element name="messages" type="tns:messagesArray" minOccurs="0" maxOccurs="1" documentation="Messages."/>
+   <xsd:element name="package" type="tns:package" minOccurs="0" maxOccurs="1" documentation="Package."/>
+   <xsd:element name="pallet" type="tns:package" minOccurs="0" maxOccurs="1" documentation="Pallet."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="messagesArray">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:messageDetials[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="messageDetials">
+  <xsd:all>
+   <xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Product or service name."/>
+   <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="servicesArray">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:serviceOverall[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="serviceOverall">
+  <xsd:all>
+   <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Product name."/>
+   <xsd:element name="value" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Value."/>
+   <xsd:element name="nett" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Nett price."/>
+   <xsd:element name="vat" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="VAT value."/>
+   <xsd:element name="gross" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Gross price."/>
+   <xsd:element name="quantity" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Products quantity."/>
+   <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="productsArray">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:productOverall[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="productOverall">
+  <xsd:all>
+   <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Product name."/>
+   <xsd:element name="nett" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Nett price."/>
+   <xsd:element name="vat" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="VAT value."/>
+   <xsd:element name="gross" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Gross price."/>
+   <xsd:element name="quantity" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Products quantity."/>
+   <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="alertTypes">
+  <xsd:all>
+   <xsd:element name="alertsSms" type="tns:alertsOverall" minOccurs="0" maxOccurs="1" documentation="SMS alerts."/>
+   <xsd:element name="alertsEmail" type="tns:alertsOverall" minOccurs="0" maxOccurs="1" documentation="Email alerts."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="alertsOverall">
+  <xsd:all>
+   <xsd:element name="nett" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Nett price."/>
+   <xsd:element name="vat" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="VAT value."/>
+   <xsd:element name="gross" type="xsd:float" minOccurs="1" maxOccurs="1" documentation="Gross price."/>
+   <xsd:element name="quantity" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Products quantity."/>
+   <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="rateResult">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Pricing status."/>
+   <xsd:element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Status description."/>
+   <xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Error description."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="rateAddress">
+  <xsd:all>
+   <xsd:element name="senderCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender country ISO code."/>
+   <xsd:element name="senderEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender email address."/>
+   <xsd:element name="senderName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender name."/>
+   <xsd:element name="senderStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender street name and number."/>
+   <xsd:element name="senderCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender city name."/>
+   <xsd:element name="senderPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender phone number."/>
+   <xsd:element name="senderZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender zip code."/>
+   <xsd:element name="senderContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender contact person name."/>
+   <xsd:element name="receiverCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver country ISO code."/>
+   <xsd:element name="receiverEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver email address."/>
+   <xsd:element name="receiverName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver name."/>
+   <xsd:element name="receiverStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver street name and number."/>
+   <xsd:element name="receiverCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver city name."/>
+   <xsd:element name="receiverPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver phone number."/>
+   <xsd:element name="receiverZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver zip code."/>
+   <xsd:element name="receiverContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver contact person."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="orderData">
+  <xsd:all>
+   <xsd:element name="senderCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender country ISO code."/>
+   <xsd:element name="senderEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender email address."/>
+   <xsd:element name="senderName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender name."/>
+   <xsd:element name="senderStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender street name and number."/>
+   <xsd:element name="senderCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender city name."/>
+   <xsd:element name="senderPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender phone number."/>
+   <xsd:element name="senderZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender zip code."/>
+   <xsd:element name="senderContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender contact person name."/>
+   <xsd:element name="receiverCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver country ISO code."/>
+   <xsd:element name="receiverEmail" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver email address."/>
+   <xsd:element name="receiverName" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver name."/>
+   <xsd:element name="receiverStreet" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver street name and number."/>
+   <xsd:element name="receiverCity" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver city name."/>
+   <xsd:element name="receiverPhoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver phone number."/>
+   <xsd:element name="receiverZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Receiver zip code."/>
+   <xsd:element name="receiverContactPerson" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Receiver contact person name."/>
+   <xsd:element name="packages" type="tns:packages" minOccurs="0" maxOccurs="1" documentation="List of packages."/>
+   <xsd:element name="kPal" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet order."/>
+   <xsd:element name="palletHeight" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet height."/>
+   <xsd:element name="palletWeight" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet weight."/>
+   <xsd:element name="palletCOD" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet COD."/>
+   <xsd:element name="palletINS" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Pallet INS."/>
+   <xsd:element name="palletContent" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Pallet Content."/>
+   <xsd:element name="senderBox" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Sender box code."/>
+   <xsd:element name="preferredBox" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Preferred receiver box code."/>
+   <xsd:element name="ROD" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="ROD flag."/>
+   <xsd:element name="SRE" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="SRE flag."/>
+   <xsd:element name="SSE" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="SSE flag."/>
+   <xsd:element name="BYH" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="BYH flag."/>
+   <xsd:element name="H24" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="H24 flag."/>
+   <xsd:element name="deliveryTime" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Delivery time code."/>
+   <xsd:element name="alerts" type="tns:alertTarget" minOccurs="0" maxOccurs="1" documentation="List of set notifications."/>
+   <xsd:element name="comment" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Additional comments."/>
+   <xsd:element name="protocolFlag" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Generate protocol status."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="PointsFull">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:PointFull[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="PointsShort">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:PointShort[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="PointShort">
+  <xsd:all>
+   <xsd:element name="avaliable" type="xsd:boolean"/>
+   <xsd:element name="id" type="xsd:string"/>
+   <xsd:element name="postingPoint" type="xsd:boolean"/>
+   <xsd:element name="deliveryPoint" type="xsd:boolean"/>
+   <xsd:element name="name" type="xsd:string"/>
+   <xsd:element name="paymentAvailable" type="xsd:boolean"/>
+   <xsd:element name="location" type="tns:Location"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="PointFull">
+  <xsd:all>
+   <xsd:element name="avaliable" type="xsd:boolean"/>
+   <xsd:element name="id" type="xsd:string"/>
+   <xsd:element name="postingPoint" type="xsd:boolean"/>
+   <xsd:element name="deliveryPoint" type="xsd:boolean"/>
+   <xsd:element name="name" type="xsd:string"/>
+   <xsd:element name="street" type="xsd:string"/>
+   <xsd:element name="streetNo" type="xsd:string"/>
+   <xsd:element name="flatNo" type="xsd:string"/>
+   <xsd:element name="city" type="xsd:string"/>
+   <xsd:element name="postCode" type="xsd:string"/>
+   <xsd:element name="description" type="xsd:string"/>
+   <xsd:element name="paymentPointDesc" type="xsd:string"/>
+   <xsd:element name="paymentAvailable" type="xsd:boolean"/>
+   <xsd:element name="province" type="xsd:string"/>
+   <xsd:element name="county" type="xsd:string"/>
+   <xsd:element name="phone" type="xsd:string"/>
+   <xsd:element name="location" type="tns:Location"/>
+   <xsd:element name="additionalInfo" type="tns:AdditionalInfo"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="Location">
+  <xsd:all>
+   <xsd:element name="lat" type="xsd:string"/>
+   <xsd:element name="lng" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="AdditionalInfo">
+  <xsd:all>
+   <xsd:element name="expressServiceHours" type="tns:ExpressServiceHours"/>
+   <xsd:element name="standardServiceHours" type="tns:StandardServiceHours"/>
+   <xsd:element name="operatingHours" type="tns:OperatingHours"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ExpressServiceHours">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Express[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="Express">
+  <xsd:all>
+   <xsd:element name="DayOfWeek" type="xsd:string"/>
+   <xsd:element name="PickUpDetails" type="tns:ExpressTime"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="ExpressTime">
+  <xsd:all>
+   <xsd:element name="PickUpTime" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="StandardServiceHours">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:Standard[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="Standard">
+  <xsd:all>
+   <xsd:element name="DayOfWeek" type="xsd:string"/>
+   <xsd:element name="PickUpDetails" type="tns:StandardTime"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="StandardTime">
+  <xsd:all>
+   <xsd:element name="PickUpTime" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="OperatingHours">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:DayInfo[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="DayInfo">
+  <xsd:all>
+   <xsd:element name="Day" type="xsd:string"/>
+   <xsd:element name="DayText" type="xsd:string"/>
+   <xsd:element name="OpenHours" type="xsd:string"/>
+   <xsd:element name="CloseHours" type="xsd:string"/>
+   <xsd:element name="BreakFromHours" type="xsd:string"/>
+   <xsd:element name="BreakToHours" type="xsd:string"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPProtocolGenerate">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="protocols" type="tns:genProtocolsData" minOccurs="0" maxOccurs="1" documentation="Orders with their protocols."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPGetProtocol">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="protocol" type="tns:protocolData" minOccurs="0" maxOccurs="1" documentation="Protocol data."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPProtocolList">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="conditions" type="tns:listProtocolConditions" minOccurs="0" maxOccurs="1" documentation="List of conditions."/>
+   <xsd:element name="protocols" type="tns:listProtocolResults" minOccurs="0" maxOccurs="1" documentation="List of protocols."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="returnStruct.SPProtocolPDF">
+  <xsd:all>
+   <xsd:element name="status" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Returned type: success|error"/>
+   <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Returned message or error description."/>
+   <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Code of error or information."/>
+   <xsd:element name="protocols" type="SOAP-ENC:Array" minOccurs="0" maxOccurs="1" documentation="List of protocol numbers printed."/>
+   <xsd:element name="pdf" type="xsd:base64Binary" minOccurs="0" maxOccurs="1" documentation="Base64 encoded PDF file"/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="genProtocolsData">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:genProtocolsDataSingle[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:complexType name="genProtocolsDataSingle">
+  <xsd:all>
+   <xsd:element name="orderNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Order number."/>
+   <xsd:element name="protocolNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Protocol number."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="protocolData">
+  <xsd:all>
+   <xsd:element name="protocolID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Protocol ID."/>
+   <xsd:element name="dateAdded" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Date added."/>
+   <xsd:element name="userID" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="User ID."/>
+   <xsd:element name="protocolNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Protocol number."/>
+   <xsd:element name="courierName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Courier name."/>
+   <xsd:element name="senderName" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender name."/>
+   <xsd:element name="senderStreet" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender street name and number."/>
+   <xsd:element name="senderZipCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender zip code."/>
+   <xsd:element name="senderCity" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender city."/>
+   <xsd:element name="senderCountryCode" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender country ISO code."/>
+   <xsd:element name="senderPhoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender phone number."/>
+   <xsd:element name="senderEmail" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender email address."/>
+   <xsd:element name="senderContactPerson" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sender contact person name."/>
+   <xsd:element name="orders" type="SOAP-ENC:Array" minOccurs="1" maxOccurs="1" documentation="List of orders on protocol."/>
+   <xsd:element name="protocolHash" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Protocol hash."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listProtocolConditions">
+  <xsd:all>
+   <xsd:element name="operand" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Operator."/>
+   <xsd:element name="value" type="xsd:string" minOccurs="0" maxOccurs="1" documentation="Field value."/>
+   <xsd:element name="orderby" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Field name."/>
+   <xsd:element name="ordertype" type="xsd:string" minOccurs="1" maxOccurs="1" documentation="Sorting order."/>
+   <xsd:element name="limit" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results limit."/>
+   <xsd:element name="offset" type="xsd:int" minOccurs="1" maxOccurs="1" documentation="Results offset."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listProtocolResults">
+  <xsd:all>
+   <xsd:element name="count" type="xsd:int" minOccurs="0" maxOccurs="1" documentation="Number of results."/>
+   <xsd:element name="list" type="tns:listProtocols" minOccurs="0" maxOccurs="1" documentation="List of results."/>
+  </xsd:all>
+ </xsd:complexType>
+ <xsd:complexType name="listProtocols">
+  <xsd:complexContent>
+   <xsd:restriction base="SOAP-ENC:Array">
+    <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:protocolData[]"/>
+   </xsd:restriction>
+  </xsd:complexContent>
+ </xsd:complexType>
+</xsd:schema>
+</types>
+<message name="SPGetUserRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="getAddress" type="xsd:int" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPGetUserResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPGetUser" /></message>
+<message name="SPUserLoginRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="login" type="xsd:string" />
+  <part name="password" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPUserLoginResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPUserLogin" /></message>
+<message name="SPUserFieldRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="field" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPUserFieldResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPUserField" /></message>
+<message name="SPAddressAddRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="addressData" type="tns:userAddressIn" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPAddressAddResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPAddressAdd" /></message>
+<message name="SPAddressDeleteRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="addresses" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPAddressDeleteResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPAddressDelete" /></message>
+<message name="SPAddressListRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="limit" type="xsd:int" />
+  <part name="offset" type="xsd:int" />
+  <part name="orderBy" type="xsd:string" />
+  <part name="orderType" type="xsd:string" />
+  <part name="operand" type="xsd:string" />
+  <part name="operator" type="xsd:string" />
+  <part name="value" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPAddressListResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPAddressList" /></message>
+<message name="SPGetAddressRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="addressID" type="xsd:int" />
+  <part name="flag" type="xsd:int" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPGetAddressResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPGetAddress" /></message>
+<message name="SPGetOrderRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orderNumber" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPGetOrderResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPGetOrder" /></message>
+<message name="SPServicesCheckRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="senderZipCode" type="xsd:string" />
+  <part name="senderCountryCode" type="xsd:string" />
+  <part name="receiverZipCode" type="xsd:string" />
+  <part name="receiverCountryCode" type="xsd:string" />
+  <part name="pallet" type="xsd:int" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPServicesCheckResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPServicesCheck" /></message>
+<message name="SPPackagesValidateRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="packages" type="tns:packages" />
+  <part name="countryCode" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPPackagesValidateResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPPackagesValidate" /></message>
+<message name="SPOrderRateRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orderData" type="tns:orderData" />
+  <part name="courier" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderRateResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderRate" /></message>
+<message name="SPOrderSaveRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orderData" type="tns:orderData" />
+  <part name="courier" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderSaveResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderSave" /></message>
+<message name="SPOrderConfirmRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orderData" type="tns:orderData" />
+  <part name="courier" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderConfirmResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderSave" /></message>
+<message name="SPOrderConfirmListRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orders" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderConfirmListResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderConfirmList" /></message>
+<message name="SPOrderStatusRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orders" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderStatusResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderStatus" /></message>
+<message name="SPOrderListRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="type" type="xsd:int" />
+  <part name="limit" type="xsd:int" />
+  <part name="offset" type="xsd:int" />
+  <part name="orderBy" type="xsd:string" />
+  <part name="orderType" type="xsd:string" />
+  <part name="operand" type="xsd:string" />
+  <part name="operator" type="xsd:string" />
+  <part name="value" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderListResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderList" /></message>
+<message name="SPOrderPDFRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orders" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPOrderPDFResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPOrderPDF" /></message>
+<message name="SPGetPointsFullRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="courier" type="xsd:string" /></message>
+<message name="SPGetPointsFullResponse">
+  <part name="code" type="xsd:string" />
+  <part name="message" type="xsd:string" />
+  <part name="status" type="xsd:string" />
+  <part name="points" type="tns:PointsFull" /></message>
+<message name="SPGetPointsShortRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="courier" type="xsd:string" /></message>
+<message name="SPGetPointsShortResponse">
+  <part name="code" type="xsd:string" />
+  <part name="message" type="xsd:string" />
+  <part name="status" type="xsd:string" />
+  <part name="points" type="tns:PointsShort" /></message>
+<message name="SPGetPointRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="courier" type="xsd:string" />
+  <part name="pointID" type="xsd:string" /></message>
+<message name="SPGetPointResponse">
+  <part name="code" type="xsd:string" />
+  <part name="message" type="xsd:string" />
+  <part name="status" type="xsd:string" />
+  <part name="point" type="tns:PointFull" /></message>
+<message name="SPProtocolGenerateRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="orders" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPProtocolGenerateResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPProtocolGenerate" /></message>
+<message name="SPGetProtocolRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="protocolNumber" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPGetProtocolResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPGetProtocol" /></message>
+<message name="SPProtocolListRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="limit" type="xsd:int" />
+  <part name="offset" type="xsd:int" />
+  <part name="orderBy" type="xsd:string" />
+  <part name="orderType" type="xsd:string" />
+  <part name="operand" type="xsd:string" />
+  <part name="operator" type="xsd:string" />
+  <part name="value" type="xsd:string" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPProtocolListResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPProtocolList" /></message>
+<message name="SPProtocolPDFRequest">
+  <part name="apiKey" type="xsd:string" />
+  <part name="userHash" type="xsd:string" />
+  <part name="protocols" type="SOAP-ENC:Array" />
+  <part name="lang" type="xsd:string" /></message>
+<message name="SPProtocolPDFResponse">
+  <part name="returnStruct" type="tns:returnStruct.SPProtocolPDF" /></message>
+<portType name="SendIt.plPortType">
+  <operation name="SPGetUser">
+    <input message="tns:SPGetUserRequest"/>
+    <output message="tns:SPGetUserResponse"/>
+  </operation>
+  <operation name="SPUserLogin">
+    <input message="tns:SPUserLoginRequest"/>
+    <output message="tns:SPUserLoginResponse"/>
+  </operation>
+  <operation name="SPUserField">
+    <input message="tns:SPUserFieldRequest"/>
+    <output message="tns:SPUserFieldResponse"/>
+  </operation>
+  <operation name="SPAddressAdd">
+    <input message="tns:SPAddressAddRequest"/>
+    <output message="tns:SPAddressAddResponse"/>
+  </operation>
+  <operation name="SPAddressDelete">
+    <input message="tns:SPAddressDeleteRequest"/>
+    <output message="tns:SPAddressDeleteResponse"/>
+  </operation>
+  <operation name="SPAddressList">
+    <input message="tns:SPAddressListRequest"/>
+    <output message="tns:SPAddressListResponse"/>
+  </operation>
+  <operation name="SPGetAddress">
+    <input message="tns:SPGetAddressRequest"/>
+    <output message="tns:SPGetAddressResponse"/>
+  </operation>
+  <operation name="SPGetOrder">
+    <input message="tns:SPGetOrderRequest"/>
+    <output message="tns:SPGetOrderResponse"/>
+  </operation>
+  <operation name="SPServicesCheck">
+    <input message="tns:SPServicesCheckRequest"/>
+    <output message="tns:SPServicesCheckResponse"/>
+  </operation>
+  <operation name="SPPackagesValidate">
+    <input message="tns:SPPackagesValidateRequest"/>
+    <output message="tns:SPPackagesValidateResponse"/>
+  </operation>
+  <operation name="SPOrderRate">
+    <input message="tns:SPOrderRateRequest"/>
+    <output message="tns:SPOrderRateResponse"/>
+  </operation>
+  <operation name="SPOrderSave">
+    <input message="tns:SPOrderSaveRequest"/>
+    <output message="tns:SPOrderSaveResponse"/>
+  </operation>
+  <operation name="SPOrderConfirm">
+    <input message="tns:SPOrderConfirmRequest"/>
+    <output message="tns:SPOrderConfirmResponse"/>
+  </operation>
+  <operation name="SPOrderConfirmList">
+    <input message="tns:SPOrderConfirmListRequest"/>
+    <output message="tns:SPOrderConfirmListResponse"/>
+  </operation>
+  <operation name="SPOrderStatus">
+    <input message="tns:SPOrderStatusRequest"/>
+    <output message="tns:SPOrderStatusResponse"/>
+  </operation>
+  <operation name="SPOrderList">
+    <input message="tns:SPOrderListRequest"/>
+    <output message="tns:SPOrderListResponse"/>
+  </operation>
+  <operation name="SPOrderPDF">
+    <input message="tns:SPOrderPDFRequest"/>
+    <output message="tns:SPOrderPDFResponse"/>
+  </operation>
+  <operation name="SPGetPointsFull">
+    <input message="tns:SPGetPointsFullRequest"/>
+    <output message="tns:SPGetPointsFullResponse"/>
+  </operation>
+  <operation name="SPGetPointsShort">
+    <input message="tns:SPGetPointsShortRequest"/>
+    <output message="tns:SPGetPointsShortResponse"/>
+  </operation>
+  <operation name="SPGetPoint">
+    <input message="tns:SPGetPointRequest"/>
+    <output message="tns:SPGetPointResponse"/>
+  </operation>
+  <operation name="SPProtocolGenerate">
+    <input message="tns:SPProtocolGenerateRequest"/>
+    <output message="tns:SPProtocolGenerateResponse"/>
+  </operation>
+  <operation name="SPGetProtocol">
+    <input message="tns:SPGetProtocolRequest"/>
+    <output message="tns:SPGetProtocolResponse"/>
+  </operation>
+  <operation name="SPProtocolList">
+    <input message="tns:SPProtocolListRequest"/>
+    <output message="tns:SPProtocolListResponse"/>
+  </operation>
+  <operation name="SPProtocolPDF">
+    <input message="tns:SPProtocolPDFRequest"/>
+    <output message="tns:SPProtocolPDFResponse"/>
+  </operation>
+</portType>
+<binding name="SendIt.plBinding" type="tns:SendIt.plPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="SPGetUser">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetUser" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPUserLogin">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPUserLogin" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPUserField">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPUserField" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPAddressAdd">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPAddressAdd" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPAddressDelete">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPAddressDelete" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPAddressList">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPAddressList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetAddress">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetAddress" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetOrder">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetOrder" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPServicesCheck">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPServicesCheck" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPPackagesValidate">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPPackagesValidate" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderRate">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderRate" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderSave">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderSave" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderConfirm">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderConfirm" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderConfirmList">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderConfirmList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderStatus">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderStatus" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderList">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPOrderList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPOrderPDF">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPaOrderPDF" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetPointsFull">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetPointsFull" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetPointsShort">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetPointsShort" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetPoint">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetPoint" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPProtocolGenerate">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPProtocolGenerate" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPGetProtocol">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPGetProtocol" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPProtocolList">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPProtocolList" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="SPProtocolPDF">
+    <soap:operation soapAction="http://api.sandbox-sendit.pl/public.php/SPProtocolPDF" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://api.sandbox-sendit.pl/public.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="SendIt.pl">
+  <port name="SendIt.plPort" binding="tns:SendIt.plBinding">
+    <soap:address location="http://api.sandbox-sendit.pl/public.php"/>
+  </port>
+</service>
+</definitions>
