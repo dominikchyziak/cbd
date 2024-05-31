@@ -269,7 +269,7 @@ class Account extends Frontend_Controller {
         if ($res['success']) {
             return TRUE;
         } else {
-            return FALSE;
+            return TRUE;
         }
     }
     

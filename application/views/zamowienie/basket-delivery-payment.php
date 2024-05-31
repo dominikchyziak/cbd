@@ -1,9 +1,29 @@
+<style>
+    
+    .paczkomat-floating-div {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 20px;
+        padding-bottom: 70px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        text-align: center;
+        z-index: 10000;
+    }
+</style>
+
 <div class="col-sm-12">                           
     <div class="my-header">
         <img src="<?= (new CustomElementModel('16'))->getField('sposob dostawy grafika'); ?>">
         <h2 class="naglowek-do-menu-select"><?= (new CustomElementModel('16'))->getField('sposob dostawy etykieta'); ?></h2>
         <div class="form-group">
-            <select onchange="setPrice(this.options[this.selectedIndex].getAttribute('price'));" name="delivery" id="delivery" required="true" class="form-control delivery-payment">
+            <select onchange="setPrice(this.options[this.selectedIndex].getAttribute('price')); showGeoWidget();" name="delivery" id="delivery" required="true" class="form-control delivery-payment">
                 <option value="" style="width: 100px;" ><?= (new CustomElementModel('11'))->getField('Wybierz sposob dostawy'); ?></option>
                 <?php
                 if(!empty($deliveries)){
@@ -20,6 +40,18 @@
                 }
                 ?>
             </select>
+
+            <div class="paczkomat-floating-div" id="paczkomatDiv">
+                <link rel="stylesheet" href="https://geowidget.inpost.pl/inpost-geowidget.css" />
+                <script src='https://geowidget.inpost.pl/inpost-geowidget.js' defer></script>
+                <script>
+                </script>
+                <inpost-geowidget onpoint="onpointselect"
+                token='eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQlpXVzFNZzVlQnpDYU1XU3JvTlBjRWFveFpXcW9Ua2FuZVB3X291LWxvIn0.eyJleHAiOjIwMzIzNDU2OTAsImlhdCI6MTcxNjk4NTY5MCwianRpIjoiOWY4YjI0YmYtYWM5NS00Y2M0LWI4MzYtYzA2N2FiYTRkOTM3IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5pbnBvc3QucGwvYXV0aC9yZWFsbXMvZXh0ZXJuYWwiLCJzdWIiOiJmOjEyNDc1MDUxLTFjMDMtNGU1OS1iYTBjLTJiNDU2OTVlZjUzNTpHaUFLNXpLYktKLUZ5N0ZkMG1leWtpeDAyNktSNVc0VWhIN2xFR2FoU3BLOF9hQ0lIeVRwdkRsR3ZrQkxsV193IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2hpcHgiLCJzZXNzaW9uX3N0YXRlIjoiNmFlMjFiYTYtMzI1OC00YzVjLWJhMjEtMWRhZWIyMmE1MTkxIiwic2NvcGUiOiJvcGVuaWQgYXBpOmFwaXBvaW50cyIsInNpZCI6IjZhZTIxYmE2LTMyNTgtNGM1Yy1iYTIxLTFkYWViMjJhNTE5MSIsImFsbG93ZWRfcmVmZXJyZXJzIjoiMTI3LjAuMC4xLCouZHVvdGVzdC5wbCIsInV1aWQiOiJmNGM2ZWEyMS1lM2VjLTRjZTYtODc0YS1hYzFhOTZiOTkwMzcifQ.ROiFdkN-KN7ryvI3CeYkcbpFfCLQHd2V20t9ILfMlePXT_3y7VRm92l-neuBU1zc8G_jBehPAQ_Af5xnxyfYyTTGHPJPwCcKcDY7_FyatrL7TBaDrokWTIjvhYgIzl5ViM9DG3TzNjBTDAw1jRN0LN460LZ76Nj7IfNa5qMNTCrzeG3r3i3lrelxsqeFZTAby0E40Ij31kMJLrtcl0EXTY5WP6bS8aRruVQwUPh0NnISB84gKqmPzRoGKUV1wGy0yGaxmssVs9eIWLZ9KG-se7l5ZeWR_U-8Go49u3cr7hAMppJGUGKb84Ue0JmTxkhB5QoGaD7xwfAUw6a8nE9VtQ'
+                language='pl' config='parcelcollect'></inpost-geowidget>
+                <button class="przycisk" onclick="hideGeoWidget();" >Zamknij</button>
+            </div>
+
             <input type="hidden" name="delivery_additional" value="" id="delivery_additional"/>
             <input type="hidden" name="inpost_locker" value="" id="locker"/>
       </div> 
@@ -59,5 +91,25 @@
     $("#delivPrice").text(delivPrice.toFixed(2).toString().replace(".", ",") +' zł');  
     $("#totalPrice").text(sumPrice.toFixed(2).toString().replace(".", ",") +' zł'); 
     }
+
+    function showGeoWidget(){
+        var deliveryId = $("#delivery").val();
+
+        if(deliveryId == 39){
+            $('#paczkomatDiv').fadeIn();
+        }
+    }
+
+    document.addEventListener('onpointselect', (event) => onPaczkomatPointSelect(event));
+    function onPaczkomatPointSelect(event){
+        $("#locker").val(event.detail.name);
+
+        hideGeoWidget();
+    }
+
+    function hideGeoWidget(){
+        $('#paczkomatDiv').fadeOut();
+    }
+  
 </script>
     

@@ -571,15 +571,17 @@ class Zamowienie extends Frontend_Controller {
 
             $this->form_validation->set_rules('method', (new CustomElementModel('11'))->getField('Wybierz metodę płatności'), 'required');
             $this->form_validation->set_rules('delivery', (new CustomElementModel('11'))->getField('Wybierz sposob dostawy'), 'required');
+            $this->form_validation->set_rules('inpost_locker', (new CustomElementModel('11'))->getField('Wybierz sposob dostawy') , 'callback_required_paczkomat_name');
             $this->form_validation->set_rules('accept_term', (new CustomElementModel('11'))->getField('regulamin'), 'required');
-            $this->form_validation->set_rules('g-recaptcha-response', 'reCaptcha', 'callback__validate_kapcza');
-            $this->form_validation->set_message('_validate_kapcza', 'Przejdź test reCaptcha');
+            //$this->form_validation->set_rules('g-recaptcha-response', 'reCaptcha', 'callback__validate_kapcza');
+            //$this->form_validation->set_message('_validate_kapcza', 'Przejdź test reCaptcha');
 
             if ($this->form_validation->run()) {
                 $data = $this->session->userdata('current_order');
                 
                 $data['delivery'] = $this->input->post('delivery');
                 $data['method'] = $this->input->post('method');
+                $data['inpost_locker'] = $this->input->post('inpost_locker');
 
                 $total = $this->code_obj->recalculate_sum($products, null, 1) * 1;
                 
@@ -907,6 +909,31 @@ class Zamowienie extends Frontend_Controller {
         }
     }
 
+
+    public function required_paczkomat_name(){
+        $delivery_id = $this->input->post('delivery');
+
+        $query = $this->db->select('special_name')
+                  ->from('duo_shop_delivery')
+                  ->where('id', $delivery_id)
+                  ->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+                
+            if ($result->special_name == 'inpost_locker_standard') {
+                if(empty($this->input->post('inpost_locker'))){
+                    $this->form_validation->set_message("required_paczkomat_name", "Nie wybrano paczkomatu");
+                    return FALSE;
+                }else{
+                    return TRUE;
+                }
+            }else{
+                return TRUE;
+            }
+        }
+      
+    }
 //    public function bubitest(){
 ////        $this->session->set_userdata('basket', []);
 //        var_dump($this->session->userdata('basket'));

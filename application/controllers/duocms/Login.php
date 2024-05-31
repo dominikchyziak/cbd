@@ -17,8 +17,8 @@ class Login extends MY_Controller {
 
         $this->form_validation->set_rules('email', 'Login', 'required');
         $this->form_validation->set_rules('haslo', 'Hasło', 'required|callback__check_password');
-        $this->form_validation->set_rules('g-recaptcha-response', 'reCaptcha', 'callback__validate_kapcza');
-        $this->form_validation->set_message('_validate_kapcza', 'Przejdź test reCaptcha');
+        //$this->form_validation->set_rules('g-recaptcha-response', 'reCaptcha', 'callback__validate_kapcza');
+        //$this->form_validation->set_message('_validate_kapcza', 'Przejdź test reCaptcha');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('duocms/Login/index');
