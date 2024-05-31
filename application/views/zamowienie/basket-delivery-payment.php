@@ -1,20 +1,42 @@
 <style>
     
-    .paczkomat-floating-div {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        height: 90%;
-        padding: 20px;
-        padding-bottom: 70px;
-        background-color: white;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        text-align: center;
-        z-index: 10000;
+    @media only screen and (min-width: 769px) {
+        .paczkomat-floating-div {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            padding-bottom: 70px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            z-index: 10000;
+        }
+    }
+   
+
+    @media only screen and (max-width: 768px) {
+        .paczkomat-floating-div {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            padding-bottom: 70px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            z-index: 10000;
+        }
     }
 </style>
 
@@ -108,6 +130,10 @@
     }
 
     function hideGeoWidget(){
+        if($("#locker").val() === ""){
+            $("#delivery").val("");
+        }
+
         $('#paczkomatDiv').fadeOut();
     }
   
