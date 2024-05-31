@@ -7,8 +7,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 90%;
             padding: 10px;
             padding-bottom: 70px;
             background-color: white;
@@ -66,12 +66,10 @@
             <div class="paczkomat-floating-div" id="paczkomatDiv">
                 <link rel="stylesheet" href="https://geowidget.inpost.pl/inpost-geowidget.css" />
                 <script src='https://geowidget.inpost.pl/inpost-geowidget.js' defer></script>
-                <script>
-                </script>
-                <inpost-geowidget onpoint="onpointselect"
+                <inpost-geowidget id="geoWidget" onpoint="onpointselect"
                 token='eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQlpXVzFNZzVlQnpDYU1XU3JvTlBjRWFveFpXcW9Ua2FuZVB3X291LWxvIn0.eyJleHAiOjIwMzIzNDU2OTAsImlhdCI6MTcxNjk4NTY5MCwianRpIjoiOWY4YjI0YmYtYWM5NS00Y2M0LWI4MzYtYzA2N2FiYTRkOTM3IiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5pbnBvc3QucGwvYXV0aC9yZWFsbXMvZXh0ZXJuYWwiLCJzdWIiOiJmOjEyNDc1MDUxLTFjMDMtNGU1OS1iYTBjLTJiNDU2OTVlZjUzNTpHaUFLNXpLYktKLUZ5N0ZkMG1leWtpeDAyNktSNVc0VWhIN2xFR2FoU3BLOF9hQ0lIeVRwdkRsR3ZrQkxsV193IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2hpcHgiLCJzZXNzaW9uX3N0YXRlIjoiNmFlMjFiYTYtMzI1OC00YzVjLWJhMjEtMWRhZWIyMmE1MTkxIiwic2NvcGUiOiJvcGVuaWQgYXBpOmFwaXBvaW50cyIsInNpZCI6IjZhZTIxYmE2LTMyNTgtNGM1Yy1iYTIxLTFkYWViMjJhNTE5MSIsImFsbG93ZWRfcmVmZXJyZXJzIjoiMTI3LjAuMC4xLCouZHVvdGVzdC5wbCIsInV1aWQiOiJmNGM2ZWEyMS1lM2VjLTRjZTYtODc0YS1hYzFhOTZiOTkwMzcifQ.ROiFdkN-KN7ryvI3CeYkcbpFfCLQHd2V20t9ILfMlePXT_3y7VRm92l-neuBU1zc8G_jBehPAQ_Af5xnxyfYyTTGHPJPwCcKcDY7_FyatrL7TBaDrokWTIjvhYgIzl5ViM9DG3TzNjBTDAw1jRN0LN460LZ76Nj7IfNa5qMNTCrzeG3r3i3lrelxsqeFZTAby0E40Ij31kMJLrtcl0EXTY5WP6bS8aRruVQwUPh0NnISB84gKqmPzRoGKUV1wGy0yGaxmssVs9eIWLZ9KG-se7l5ZeWR_U-8Go49u3cr7hAMppJGUGKb84Ue0JmTxkhB5QoGaD7xwfAUw6a8nE9VtQ'
-                language='pl' config='parcelcollect'></inpost-geowidget>
-                <button class="przycisk" onclick="hideGeoWidget();" >Zamknij</button>
+                 config='parcelcollect'></inpost-geowidget>
+                <button class="przycisk" onclick="hideGeoWidget();" ><?= (new CustomElementModel('11'))->getField('zamknij geowidget'); ?></button>
             </div>
 
             <input type="hidden" name="delivery_additional" value="" id="delivery_additional"/>
@@ -128,6 +126,19 @@
 
         hideGeoWidget();
     }
+
+    function geoWidgetChangeLanguage(){
+        const geowidget = document.getElementById('geoWidget');
+        geowidget.addEventListener('inpost.geowidget.init', (event) => {
+            const api = event.detail.api;
+            var currentLanguage = document.documentElement.lang;
+            api.changeLanguage(currentLanguage);
+        });
+    }
+    geoWidgetChangeLanguage();
+
+   
+ 
 
     function hideGeoWidget(){
         if($("#locker").val() === ""){
